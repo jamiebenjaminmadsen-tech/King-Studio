@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>King-Studio | Forside</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #111;
+  overflow-x: hidden;
+  padding-top: 140px; /* plads til centreret navbar */
+}
+
+/* Centreret Navbar */
+.navbar {
+  display: flex;
+  flex-direction: column; /* logo over links */
+  align-items: center;    /* centrer horisontalt */
+  padding: 20px;
+  background: #111;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+.navbar .logo {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #FFD700;
+}
+#hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: 0.3s;
+}
+.nav-links li a:hover,
+.nav-links li a.active { color: #f39c12; }
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: url('Logo.png') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.hero::before {
+  content:"";
+  position: absolute;
+  top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+  z-index:1;
+}
+.hero-content {
+  position: relative;
+  z-index:2;
+  color: #FFD700;
+  max-width: 800px;
+}
+.hero-content h2 {
+  font-size:48px;
+  margin-bottom:20px;
+  color:#FFD700;
+  animation: fadeInDown 1.5s ease;
+}
+.hero-content p {
+  font-size:20px;
+  margin-bottom:15px;
+  color:#fff;
+  animation: fadeInUp 2s ease;
+}
+@keyframes fadeInDown { from { opacity:0; transform:translateY(-50px);} to {opacity:1; transform:translateY(0);} }
+@keyframes fadeInUp { from { opacity:0; transform:translateY(50px);} to {opacity:1; transform:translateY(0);} }
+
+/* Buttons */
+.btn {
+  background: #FFD700;
+  color: #111;
+  padding: 12px 25px;
+  border-radius: 5px;
+  margin: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+  position: relative;
+}
+.btn:hover {
+  background: #d4a017;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #FFD700;
+}
+
+/* Sections */
+.section {
+  padding:80px 20px;
+  max-width:1200px;
+  margin:auto;
+  text-align:center;
+  opacity:0;
+  transform:translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.section.show { opacity:1; transform:translateY(0); }
+
+/* Services */
+.services-container { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; }
+.service-box {
+  background:#f4f4f4;
+  padding:20px;
+  border-radius:10px;
+  text-align:center;
+  width:250px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+.service-box i { font-size:40px; color:#f39c12; margin-bottom:10px; display:block; }
+.service-box h3 { color:#f39c12; margin-bottom:10px; }
+.service-box p { font-size:16px; }
+.service-box:hover { transform:translateY(-10px) rotateZ(-1deg); box-shadow:0 8px 20px rgba(0,0,0,0.2); }
+
+/* Partners */
+.partner-container {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:40px;
+  flex-wrap:wrap;
+  margin-top:50px;
+}
+.partner-image img {
+  width:120px;
+  border-radius:10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.partner-image img:hover {
+  transform:scale(1.1) rotate(-3deg);
+  box-shadow:0 4px 15px rgba(0,0,0,0.3);
+}
+.partner-description { max-width:500px; text-align:left; }
+.partner-description h3 { color:#FFD700; font-size:24px; margin-bottom:10px; }
+.partner-description p { font-size:16px; }
+.partner-description .social-icons a { margin:0 5px; font-size:20px; color:#111; transition:0.3s; }
+.partner-description .social-icons a:hover { color:#FFD700; }
+
+/* Video */
+.about-video video { width:100%; max-width:800px; border-radius:10px; display:block; margin:20px auto; }
+
+/* CTA */
+.cta { background:#111; color:#fff; text-align:center; padding:80px 20px; }
+.cta h2 { font-size:32px; margin-bottom:20px; }
+.cta p { font-size:18px; margin-bottom:30px; }
+
+/* Footer */
+footer { background:#111; color:#fff; text-align:center; padding:20px; }
+.footer-content .social-icons a { margin:0 10px; color:#fff; font-size:20px; transition:0.3s; }
+.footer-content .social-icons a:hover { color:#FFD700; }
+
+/* Responsive */
+@media(max-width:768px){
+  .services-container{flex-direction:column;}
+  .partner-container{flex-direction:column;}
+  #hamburger { display: block; }
+  #nav-links { display: none; flex-direction: column; text-align: center; width: 100%; }
+  #nav-links.open { display: flex; }
+  .nav-links li { margin: 10px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<header>
+  <nav class="navbar">
+    <h1 class="logo">King-Studio</h1>
+    <div id="hamburger">&#9776;</div>
+    <ul id="nav-links" class="nav-links">
+      <li><a href="index.html" class="active">Forside</a></li>
+      <li><a href="partners.html">Samarbejdspartnere</a></li>
+      <li><a href="job.html">Kontakt os</a></li>
+      <li><a href="OmOs.html">Om os</a></li>
+      <li><a href="produkter.html" >Produkter</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <h2>King-Studio</h2>
+    <p>Velkommen til King-Studio.</p>
+    <p>King-Studio – Specialiseret i marketing på sociale medier, samt hjemmesidedesign.</p>
+    <a href="https://calendly.com/jamie-benjamin-madsen/30min" class="btn" target="_blank">Book et møde</a>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section services-overview">
+  <h2>Vores Services</h2>
+  <div class="services-container">
+    <div class="service-box">
+      <i class="fas fa-chart-line"></i>
+      <h3>Digital Marketing</h3>
+      <p>SEO, Google Ads og sociale medier – vi sørger for at du bliver set online.</p>
+    </div>
+    <div class="service-box">
+      <i class="fas fa-paint-brush"></i>
+      <h3>Branding & Design</h3>
+      <p>Vi skaber personlige hjemmesider, der afspejler din stil og gør dig genkendelig online.</p>
+    </div>
+    <div class="service-box">
+      <i class="fas fa-bullhorn"></i>
+      <h3>Kampagner</h3>
+      <p>Kreative kampagner, der rammer din målgruppe og skaber resultater.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Video -->
+<section class="section about-video">
+  <h2>Se hvad vi gør</h2>
+  <video controls>
+    <source src="forklaring.mp4" type="video/mp4">
+    Din browser understøtter ikke video-tagget.
+  </video>
+</section>
+
+<!-- Samarbejdspartnere -->
+<section class="section">
+  <h2 style="color:#FFD700; font-size:36px;">Udtalelser for partnere</h2>
+  <div class="partner-container">
+    <div class="partner-image">
+      <img src="smørbroedskon.png" alt="Smørbrødskon logo">
+    </div>
+    <div class="partner-description">
+      <h3>Smørrebrød Kongen</h3>
+      <p>Vi har haft fornøjelsen af at arbejde sammen med King-Studio og hjælpe <strong>Smørrebrød Kongen</strong> med at vokse på sociale medier gennem strategisk markedsføring og kreativt indhold.</p>
+      <p></p>
+      <div class="social-icons">
+        <a href="https://www.tiktok.com/@kongen300" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/smorbroedskon" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta section">
+  <h2>Er du klar til at vækste din forretning?</h2>
+  <p>Kontakt os i dag, og lad os skabe en strategi, der passer til dit brand.</p>
+  <a href="https://calendly.com/jamie-benjamin-madsen/30min" class="btn" target="_blank">Book et møde</a>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <p>© 2025 King-Studio</p>
+    <p>CVR: 45853845</p>
+    <p>Telefon: +45 42 72 71 41</p>
+    <div class="social-icons">
+      <a href="https://www.tiktok.com/@kingstudio300" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/ditbrugernavn" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@ditbrugernavn" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Hamburger menu
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
+
+// Scroll animation
+const sections = document.querySelectorAll('.section');
+window.addEventListener('scroll', () => {
+  sections.forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100){
+      sec.classList.add('show');
+    }
+  });
+});
+window.addEventListener('load', () => { sections.forEach(sec => sec.classList.add('show')); });
+</script>
+
+</body>
+</html>

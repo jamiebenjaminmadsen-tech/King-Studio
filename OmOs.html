@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>King-Studio | Om os</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #111;
+  background: #f9f9f9;
+  padding-top: 140px; /* plads til centreret navbar */
+}
+
+/* Centreret Navbar */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #111;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.navbar .logo {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #FFD700;
+}
+#hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: 0.3s;
+}
+.nav-links li a:hover,
+.nav-links li a.active { color: #f39c12; }
+
+/* Sektioner */
+.section {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Om Os tekst */
+.about-text h2 {
+  font-size: 36px;
+  color: #FFD700;
+  margin-bottom: 20px;
+}
+.about-text p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  padding: 0 10px;
+}
+
+/* Ejer sektion */
+.owner-section {
+  background: #fff;
+  border-radius: 15px;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 60px auto;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+.owner-section h2 {
+  color: #FFD700;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.owner-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #FFD700;
+  margin-bottom: 15px;
+}
+.owner-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: #111;
+}
+.owner-role {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 15px;
+}
+.owner-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Footer */
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+footer .social-icons a {
+  margin: 0 10px;
+  color: #fff;
+  font-size: 20px;
+  transition: 0.3s;
+}
+footer .social-icons a:hover {
+  color: #FFD700;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  #hamburger { display: block; }
+  #nav-links { display: none; flex-direction: column; text-align: center; width: 100%; }
+  #nav-links.open { display: flex; }
+  .nav-links li { margin: 10px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<header>
+  <nav class="navbar">
+    <h1 class="logo">King-Studio</h1>
+    <div id="hamburger">&#9776;</div>
+    <ul id="nav-links" class="nav-links">
+      <li><a href="index.html">Forside</a></li>
+      <li><a href="partners.html">Samarbejdspartnere</a></li>
+      <li><a href="job.html">Kontakt os</a></li>
+      <li><a href="omos.html" class="active">Om os</a></li>
+      <li><a href="produkter.html">Produkter</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Om Os Sektion -->
+<section class="section about-intro about-text">
+  <h2>Om King-Studio</h2>
+  <p>King-Studio er et kreativt marketingbureau, der hjælper brands med at vokse på sociale medier og online platforme. Vi arbejder ud fra principperne i <strong>OCMA – Organic Content Marketing Agency</strong>, hvilket betyder, at vi skaber indhold, der er ægte, engagerende og skræddersyet til din målgruppe.</p>
+  <p>Samtidig tilbyder vi også udvikling af <strong>hjemmesider</strong>, der ikke kun ser flotte ud, men også fungerer som en digital platform, der spiller sammen med hele din forretning – visuelt, teknisk og funktionelt.</p>
+  <p><em>King-Studio blev stiftet den 05.09.2025</em> med en mission om at levere kreativ og resultatskabende marketing til virksomheder, der ønsker at styrke deres online tilstedeværelse.</p>
+</section>
+
+<!-- Ejer Sektion -->
+<section class="section owner-section">
+  <h2>Ejer</h2>
+  <img src="ejer.jpg" alt="Ejer af King-Studio" class="owner-photo">
+  <p class="owner-name">Jamie B. Madsen</p>
+  <p class="owner-role">Grundlægger & Ejer</p>
+  <p class="owner-text">Jeg er Jamie og jeg er 19 år. Jeg stiftede King-Studio med en passion for kreativt indhold og en vision om at hjælpe virksomheder med at udtrykke deres brand på en autentisk og resultatskabende måde. Mit mål er at skabe værdi gennem design, strategi og innovation.</p>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <p>© 2025 King-Studio</p>
+    <p>CVR: 45853845</p>
+    <p>Telefon: +45 42 72 71 41</p>
+    <div class="social-icons">
+      <a href="https://www.tiktok.com/@kingstudio300" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/kingstudio300" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@kingstudio300" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script>
+const sections = document.querySelectorAll('.section');
+window.addEventListener('scroll', () => {
+  sections.forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100) {
+      sec.classList.add('show');
+    }
+  });
+});
+window.addEventListener('load', () => {
+  sections.forEach(sec => sec.classList.add('show'));
+});
+
+// Hamburger menu
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
+</script>
+
+</body>
+</html>

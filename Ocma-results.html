@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>King-Studio | Produkter</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #111;
+  background: #f9f9f9;
+  padding-top: 142.35px; /* plads til navbar */
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #111;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+.navbar .logo {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #FFD700;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: 0.3s;
+}
+.nav-links li a:hover,
+.nav-links li a.active { color: #f39c12; }
+
+/* Hamburger menu */
+#hamburger { display: none; font-size: 28px; cursor: pointer; }
+@media(max-width:768px){
+  #hamburger { display: block; }
+  #nav-links {
+    position: absolute;
+    top: 142.35px;
+    right: 0;
+    background: #111;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+  }
+  #nav-links.open { display: flex; }
+  .nav-links li { margin: 15px 0; }
+}
+
+/* Sektioner */
+.section {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.section.show { opacity: 1; transform: translateY(0); }
+
+.section h2 {
+  color: #f39c12;
+  margin-bottom: 20px;
+}
+
+/* Produkter */
+.products-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.product-box {
+  background: #f4f4f4;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.product-box img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.product-box h3 { color: #f39c12; margin-bottom: 10px; }
+.product-box p { font-size: 16px; }
+.product-box:hover {
+  transform: translateY(-5px);
+  box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Resultater layout */
+.results-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 30px;
+}
+.tiktok-embed { 
+  max-width: 100%;
+  min-height: 480px; 
+}
+.target-group img, .viewer-types img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin-top: 15px;
+}
+@media(max-width:900px){
+  .results-container { grid-template-columns: 1fr; }
+}
+
+/* Footer */
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+footer .social-icons a {
+  margin: 0 10px;
+  color: #fff;
+  font-size: 20px;
+  transition: 0.3s;
+}
+footer .social-icons a:hover { color: #FFD700; }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<header>
+  <nav class="navbar">
+    <h1 class="logo">King-Studio</h1>
+    <ul class="nav-links">
+      <li><a href="index.html">Forside</a></li>
+      <li><a href="partners.html">Samarbejdspartnere</a></li>
+      <li><a href="job.html">Kontakt os</a></li>
+      <li><a href="omos.html">Om os</a></li>
+      <li><a href="produkter.html" class="active">Produkter</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Produkter sektion -->
+<section class="section">
+  <h2>Vores Produkter</h2>
+  <div class="products-container">
+    <div class="product-box">
+      <img src="Wep.png" alt="Webdesign">
+      <h3>Webdesign</h3>
+      <p>Vi skaber moderne, brugervenlige og responsive hjemmesider, der styrker dit brand online.</p>
+    </div>
+
+    <div class="product-box">
+      <img src="OCMA.png" alt="OCMA – Organic Content Marketing Agency">
+      <h3>OCMA</h3>
+      <p>Vi producerer engagerende og strategisk indhold, der skaber vækst på sociale medier.</p>
+    </div>
+
+    <div class="product-box">
+      <img src="SCO.png" alt="SEO & Digital Optimering">
+      <h3>SEO & Digital Optimering</h3>
+      <p>Vi optimerer din hjemmeside og digitale platforme, så du bliver synlig online, får flere besøgende og bedre konverteringer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OCMA Resultater sektion -->
+<section class="section">
+  <h2>OCMA TikTok Resultater</h2>
+  <p>Her kan du se en TikTok-video samt billeder af vores målgruppe og seertyper.</p>
+  
+  <div class="results-container">
+    <!-- TikTok video -->
+    <div class="tiktok-video">
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@kongen300/video/7512893921870056726" data-video-id="7512893921870056726" style="max-width: 400px; min-width: 225px;">
+        <section></section>
+      </blockquote>
+    </div>
+
+    <!-- Højre kolonne: Målgruppe + Seertyper -->
+    <div>
+      <div class="target-group">
+        <h3>Vores Målgruppe</h3>
+        <img src="maalgruppe.png" alt="OCMA målgruppe billede">
+      </div>
+      <div class="viewer-types">
+        <h3>Seertyper</h3>
+        <img src="seertyper.png" alt="OCMA seertyper billede">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <p>© 2025 King-Studio</p>
+    <p>CVR: 45853845</p>
+    <p>Telefon: +45 42 72 71 41</p>
+    <div class="social-icons">
+      <a href="https://www.tiktok.com/@kingstudio300" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/ditbrugernavn" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@ditbrugernavn" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script async src="https://www.tiktok.com/embed.js"></script>
+<script>
+// Scroll animation
+const sections = document.querySelectorAll('.section');
+window.addEventListener('scroll', () => {
+  sections.forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100) sec.classList.add('show');
+  });
+});
+window.addEventListener('load', () => sections.forEach(sec => sec.classList.add('show')));
+</script>
+
+</body>
+</html>

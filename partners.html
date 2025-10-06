@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samarbejdspartnere | King-Studio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #111;
+  overflow-x: hidden;
+  padding-top: 140px;
+}
+
+/* Centreret Navbar */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #111;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+.navbar .logo {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #FFD700;
+}
+#hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: 0.3s;
+}
+.nav-links li a:hover,
+.nav-links li a.active { color: #f39c12; }
+
+/* Samarbejdspartnere sektion */
+#partners {
+  padding: 80px 20px;
+  text-align: center;
+}
+.partner-title {
+  font-size: 40px;
+  color: #FFD700;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+.partner-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.partner-image img {
+  max-width: 250px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.partner-image img:hover {
+  transform: scale(1.05);
+}
+.partner-description {
+  max-width: 500px;
+  text-align: left;
+}
+.partner-description h3 {
+  font-size: 28px;
+  color: #f39c12;
+  margin-bottom: 10px;
+}
+.partner-description p { font-size: 16px; margin-bottom: 15px; }
+.social-icons a { margin: 0 10px; color: #111; font-size: 24px; transition: 0.3s; }
+.social-icons a:hover { color: #FFD700; }
+
+/* Dropdown sektion med kort */
+#partner-dropdown {
+  text-align:center; 
+  margin-top:30px;
+}
+#partner-dropdown .dropdown-btn {
+  background:#f39c12; 
+  color:#111; 
+  border:none; 
+  padding:10px 20px; 
+  cursor:pointer; 
+  border-radius:5px; 
+  font-size:16px; 
+  transition: 0.3s;
+}
+#partner-dropdown .dropdown-btn i {
+  margin-left: 8px;
+  transition: transform 0.5s ease;
+}
+#partner-dropdown .dropdown-btn.open i {
+  transform: rotate(180deg);
+}
+#partner-dropdown .dropdown-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.8s ease, opacity 0.8s ease;
+}
+#partner-dropdown .dropdown-content.open {
+  max-height: 2000px;
+  opacity: 1;
+}
+
+/* Kort fade-in */
+.fade-in-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation */
+.fade-in-left, .fade-in-right, .partner-title { opacity: 0; }
+.fade-in-left { transform: translateX(-50px); transition: all 1s ease; }
+.fade-in-right { transform: translateX(50px); transition: all 1s ease; }
+.show { opacity: 1 !important; transform: translateX(0) translateY(0) !important; }
+
+/* Footer */
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+}
+.footer-content .social-icons a { margin: 0 10px; color: #fff; font-size: 20px; transition: 0.3s; }
+.footer-content .social-icons a:hover { color: #FFD700; }
+
+/* Responsive */
+@media(max-width:768px){
+  .partner-container { flex-direction: column; }
+  .partner-description { text-align: center; }
+  #hamburger { display: block; }
+  #nav-links { display: none; flex-direction: column; text-align: center; width: 100%; }
+  #nav-links.open { display: flex; }
+  .nav-links li { margin: 10px 0; }
+  #partner-dropdown .dropdown-content { flex-direction: column; align-items:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<header>
+  <nav class="navbar">
+    <h1 class="logo">King-Studio</h1>
+    <div id="hamburger">&#9776;</div>
+    <ul id="nav-links" class="nav-links">
+      <li><a href="index.html">Forside</a></li>
+      <li><a href="partners.html" class="active">Samarbejdspartnere</a></li>
+      <li><a href="job.html">Kontakt os</a></li>
+      <li><a href="omos.html">Om os</a></li>
+      <li><a href="produkter.html">Produkter</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Samarbejdspartner: Smørrebrød Kongen -->
+<section id="partners">
+  <h2 class="partner-title">Vores Samarbejdspartnere</h2>
+  <div class="partner-container">
+    <div class="partner-image fade-in-left">
+      <img src="smørbroedskon.png" alt="Smørbrødskon logo/billede">
+    </div>
+    <div class="partner-description fade-in-right">
+      <h3>Smørrebrød Kongen</h3>
+      <p>
+        Vi har hjulpet <strong>Smørrebrød Kongen</strong> med at vokse på sociale medier 
+        gennem strategisk markedsføring og kreativt indhold. 
+        Vores samarbejde har fokuseret på at engagere målgruppen, 
+        skabe genkendeligt brandindhold og øge deres synlighed online.
+      </p>
+      <p>Se mere på deres sociale medier:</p>
+      <div class="social-icons">
+        <a href="https://www.tiktok.com/@kongen300" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/kongen300/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+<!-- Dropdown med kort -->
+<div id="partner-dropdown">
+  <button class="dropdown-btn">Resultater<i class="fas fa-caret-down"></i></button>
+  
+  <div class="dropdown-content">
+    <!-- Kort 1 -->
+    <div class="card fade-in-card" style="background:#eee; padding:30px; border-radius:10px; width:400px; text-align:center;">
+      <img src="seertyper.png" alt="Produkt 1" style="width:100%; border-radius:10px; margin-bottom:10px;">
+      <h4>Seertyper</h4>
+      <p>Kombinationen af nye og tilbagevendende seere viser, at du både tiltrækker nyt publikum og fastholder eksisterende, hvilket er en stærk base for vækst.</p>
+    </div>
+    <!-- Kort 2 -->
+    <div class="card fade-in-card" style="background:#eee; padding:30px; border-radius:10px; width:400px; text-align:center;">
+      <img src="maalgruppe.png" alt="Produkt 2" style="width:100%; border-radius:10px; margin-bottom:10px;">
+      <h4>Målgruppe</h4>
+      <p>At nå 18-24-årige er værdifuldt, fordi unge er trendsættende, digitale og kan skabe synlighed og loyalitet for virksomheden.</p>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <p>© 2025 King-Studio</p>
+    <p>CVR: 45853845</p>
+    <p>Telefon: +45 42 72 71 41</p>
+    <div class="social-icons">
+      <a href="https://www.tiktok.com/@kingstudio300" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/ditbrugernavn" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@ditbrugernavn" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script>
+// Hamburger menu
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
+
+// Scroll animation
+const animatedElements = document.querySelectorAll('.fade-in-left, .fade-in-right, .partner-title');
+function checkScroll() {
+  const triggerBottom = window.innerHeight * 0.8;
+  animatedElements.forEach(el => {
+    const boxTop = el.getBoundingClientRect().top;
+    if (boxTop < triggerBottom) el.classList.add('show');
+  });
+}
+window.addEventListener('scroll', checkScroll);
+window.addEventListener('load', checkScroll);
+
+// Dropdown langsom åbning med fade-in og caret rotation
+const dropdownBtn = document.querySelector('#partner-dropdown .dropdown-btn');
+const dropdownContent = document.querySelector('#partner-dropdown .dropdown-content');
+const cards = dropdownContent.querySelectorAll('.fade-in-card');
+
+dropdownBtn.addEventListener('click', () => {
+  dropdownContent.classList.toggle('open');
+  dropdownBtn.classList.toggle('open'); // caret rotation
+
+  if (dropdownContent.classList.contains('open')) {
+    cards.forEach((card, index) => {
+      setTimeout(() => card.classList.add('show'), index * 200);
+    });
+  } else {
+    cards.forEach(card => card.classList.remove('show'));
+  }
+});
+</script>
+
+</body>
+</html>
