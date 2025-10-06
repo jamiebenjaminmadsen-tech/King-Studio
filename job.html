@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>King-Studio | Jobansøgning</title>
+<title>King-Studio | Kontakt os</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 body {
@@ -64,7 +64,13 @@ section {
   padding: 20px;
   opacity: 0;
   transform: translateY(50px);
-  animation: fadeInUp 1s forwards;
+  transition: all 1s ease;
+}
+
+/* Når sektionen vises */
+section.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Formular */
@@ -124,12 +130,6 @@ footer .social-icons a:hover {
   color: #FFD700;
 }
 
-/* Animation */
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(50px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
 /* Responsive */
 @media(max-width:768px){
   #hamburger { display: block; }
@@ -156,15 +156,18 @@ footer .social-icons a:hover {
   </nav>
 </header>
 
-<!-- Jobansøgning Form -->
+<!-- Kontakt Formular -->
 <section>
   <h2 style="text-align:center;">Kontakt os</h2>
-  <form action="https://formspree.io/f/xqadjlwv" method="POST">
+  <form id="contactForm" action="https://formspree.io/f/xqadjlwv" method="POST">
     <input type="text" name="Navn" placeholder="Dit navn" required>
     <input type="email" name="Email" placeholder="Din email" required>
     <textarea name="Besked" placeholder="Besked" required></textarea>
     <button type="submit">Send</button>
   </form>
+  <div id="confirmation" style="display:none; text-align:center; color:green; margin-top:10px;">
+    Tak! Din besked er sendt.
+  </div>
 </section>
 
 <!-- Footer -->
@@ -202,6 +205,38 @@ window.addEventListener('scroll', () => {
 });
 window.addEventListener('load', () => {
   sections.forEach(sec => sec.classList.add('show'));
+});
+
+// AJAX form submit
+const form = document.getElementById('contactForm');
+const confirmation = document.getElementById('confirmation');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault(); // Forhindrer reload
+
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      confirmation.style.display = 'block'; // Vis besked
+      confirmation.style.color = 'green';
+      form.reset();
+    } else {
+      confirmation.style.display = 'block';
+      confirmation.style.color = 'red';
+      confirmation.textContent = 'Noget gik galt, prøv igen.';
+    }
+  } catch (error) {
+    confirmation.style.display = 'block';
+    confirmation.style.color = 'red';
+    confirmation.textContent = 'Noget gik galt, prøv igen.';
+  }
 });
 </script>
 
